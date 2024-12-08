@@ -347,8 +347,9 @@ export async function POST(request: Request) {
           
             const data = await response.json();
             return {
-              message: `Here is the information about ${query}:`,
-              data: data.sections
+              message: `Here is the information about ${product}:`,
+              data: data.sections,
+              sug: data.suggestions
             };
         },
       },
