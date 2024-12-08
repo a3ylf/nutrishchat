@@ -324,12 +324,32 @@ export async function POST(request: Request) {
               })),
             });
           }
-
           return {
             id: documentId,
             title: document.title,
             message: 'Suggestions have been added to the document',
           };
+        },
+      },
+      nutrish: {
+        description: "Find nutricional and medical information about supplements, conditions, categories.",
+        parameters: z.object({
+          type: z.string().describe("The type of request it will be (e.g: supplements for creatine and vitamin-c, conditions for anxiety and depression, categories for brain health and sleep."),
+          product: z.string().describe("the specific request to search for"),
+        }),
+        execute: async ({ type,product }) => {
+            // Fetch data from the web-scraping service
+            const response = await fetch(
+              `https://nutrish-case-1.onrender.com/fetch/{type}/{product}`
+            );
+            
+            console.log('fetching information..')
+          
+            const data = await response.json();
+            return {
+              message: `Here is the information about ${query}:`,
+              data: data.sections
+            };
         },
       },
     },
