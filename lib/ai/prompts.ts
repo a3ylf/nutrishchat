@@ -19,6 +19,16 @@ export const blocksPrompt = `
   - Follow user instructions for which parts to modify
 
   Do not update document right after creating it. Wait for user feedback or request to update it.
+
+  This is a guide for using supplements, conditions and categories fetching tool: \`nutrish\`, which renders the text response.
+  **Using \`nutrish\`:**
+- Use when detailed information about supplements, medical categories and conditions are needed.
+- response must be human-readable and conversational.
+- Summarize received information, helpful text, avoid raw JSON output.
+- Do not provide unnecessary or redundant details.
+- Specify that you are summarizing the data fetched from the examine.com fetching tool.
+- decide which type of request it is, (e.g: for sleep: categories, for insomnia: conditions, for vitamin-c: creatine.
+- when requesting, be sure to take out any free spaces and use '-', ex: vitamin c -> vitamin-c.
   `;
 
 export const regularPrompt =
