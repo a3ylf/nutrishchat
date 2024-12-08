@@ -340,7 +340,7 @@ export async function POST(request: Request) {
         execute: async ({ type,product }) => {
             // Fetch data from the web-scraping service
             const response = await fetch(
-              `https://nutrish-case-1.onrender.com/fetch/{type}/{product}`
+              `https://nutrish-case-1.onrender.com/fetch/${type}/${product}`
             );
             
             console.log('fetching information..')
@@ -349,7 +349,6 @@ export async function POST(request: Request) {
             return {
               message: `Here is the information about ${product}:`,
               data: data.sections,
-              sug: data.suggestions
             };
         },
       },
